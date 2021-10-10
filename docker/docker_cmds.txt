@@ -1,0 +1,29 @@
+Docker commands
+
+docker ps
+-> lists all running docker images
+
+docker search IMAGE
+-> searches for an dedicated image on docker hub
+
+docker run -d IMAGE
+-> runs the container, if not existing, downloads the corresponding image from the docker hub
+
+docker run -d  —name NAME -p LocalPort:ImagePort IMAGE 
+-> gives the container a name and applies port forwarding
+
+docker stop IMAGE
+-> stops the container
+
+docker run -d —name NAME -v localPath:dockerPath IMAGE 
+-> starts a container and assign or mounts a volume to it for permanent data storage
+
+docker exec -it redisMount /bin/bash 
+-> executes a command in the container, use exit to leave the interactive mode
+
+docker run -t -i IMAGE	
+-> executes docker with command line shell interactive for user input
+
+docker build -t IMAGE_NAME .	
+-> build the image, „.“ stands for the path
+

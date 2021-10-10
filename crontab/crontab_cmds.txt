@@ -1,0 +1,16 @@
+Crontab_cheat_sheet
+
+List all active corn jobs
+    crontab -l
+
+Define the correct scheduling with
+    https://crontab.guru
+
+Open the edit mode for crontab
+    crontab -e
+
+How to know the default editor
+Echo $EDITOR
+
+Changing the default editor for crontab
+Export EDITOR=nano
