@@ -1,0 +1,62 @@
+https://tmuxcheatsheet.com
+
+You can customize the tmux usage by modifying the .tmux.conf file.
+https://www.hamvocke.com/blog/a-guide-to-customizing-your-tmux-conf/
+
+Current setup:
+#----------------------------------
+# remap prefix from 'C-b' to 'C-a'
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# split panes using i and -
+bind i split-window -h
+bind - split-window -v
+# here keep old bindings
+#unbind '"'
+#unbind %
+#----------------------------------
+
+NOTE: Using this config, prefix is set to PREF = 'C + a' instead of PREF = 'C + b'.
+
+
+A list of usefull keybindings for tmux terminal program
+
+###############################################################################
+###                         Sessions                                        ###
+###############################################################################
+
+PREF s
+Show all sessions
+
+PREF w
+Session and Window Preview
+
+PREF (
+Move to previous session
+
+PREF )
+Move to next session
+
+###############################################################################
+###                         Panes Control                                   ###
+###############################################################################
+
+PREF + %
+Split pane horizontally
+
+PREF "
+Split pane vertically
+
+PREF {
+Move the current pane left
+
+PREF }
+Move the current pane right
+
+PREF up
+PREF down
+PREF left
+PREF right
+Switch to pane to the direction

@@ -1,0 +1,14 @@
+https://vim.rtorr.com
+
+yy - yank (copy) a line
+
+p - put (paste) the clipboard after cursor
+
+dd - delete (cut) a line
+
+:w - write (save) the file, but don't exit
+
+h - move cursor left
+j - move cursor down
+k - move cursor up
+l - move cursor right
