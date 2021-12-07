@@ -27,3 +27,9 @@ docker run -t -i IMAGE
 docker build -t IMAGE_NAME .	
 -> build the image, „.“ stands for the path
 
+docker save -o docker_xyz.tar docker_xyz
+-> save the image docker_xyz into a docker image file (.tar) that can be exported
+
+docker rm docker_xyz
+-> removes the container image docker_xyz
+

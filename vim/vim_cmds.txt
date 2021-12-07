@@ -1,14 +1,28 @@
 https://vim.rtorr.com
 
+
 yy - yank (copy) a line
 
 p - put (paste) the clipboard after cursor
 
 dd - delete (cut) a line
 
+### File Handling #############################################################
+vi "file" - opens the file in vim
 :w - write (save) the file, but don't exit
+:wq - write and quit
+:q! - quit without saving !
+ZZ - faster way of write and quit
+:saveas "file name" - saves a file to a different location
 
+### Moving in File ############################################################
 h - move cursor left
 j - move cursor down
 k - move cursor up
 l - move cursor right
+
+### Searching #################################################################
+/"search string" - forward searching for "search string"
+?"search string" - backward searching for "search string"
+n - next instance of "search string"
+N - privious instance of "search string"
