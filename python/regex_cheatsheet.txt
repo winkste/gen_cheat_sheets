@@ -18,6 +18,7 @@ R|S	    matches either regex R or regex S
 {m}	    exactly mm occurrences
 {m, n}	from m to n. m defaults to 0, n to infinity
 {m, n}?	from m to n, as few as possible Special sequences
+|       pipe to find one of several patterns ('Bat|man|mobile|copter')
 
 \A	    start of string
 \b	    matches empty string at word boundary (between \w and \W)
@@ -43,7 +44,8 @@ R|S	    matches either regex R or regex S
 (?(id)yes|no)	match 'yes' if group 'id' matched, else 'no'
 
 ---------------------------------------------------------------
-Special Functions
+
+Python Functions
 # This function creates a regular expression object
 regEx = re.compile(regular expression, re.IGNORECASE | re.DOTALL | re.VERBOSE)
 
