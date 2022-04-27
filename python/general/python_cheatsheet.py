@@ -1284,6 +1284,13 @@ from pathlib import Path
 p = Path('spam') / 'bacon' / 'egg'
 # Note: one item has to be of class Path
 
+# How to join a path structure always OS system conform
+var = os.path.join(os.getcwd(), 'temp', 'file.txt')
+print(var)
+
+#T his can also be splitted again
+print(os.path.split(var))
+
 # getting the current working directory
 Path.cwd()
 
@@ -1341,6 +1348,10 @@ os.listdir(Path.pwd()) # here the current folder
 
 # get the size of a file
 os.path.getsize(Path.pwd() / "file.txt")
+
+# Calculating the size of a folder
+print(os.path.getsize(os.getcwd()))
+
 
 # --- SHUTIL ----
 import shutil, os
@@ -1473,4 +1484,35 @@ resp = pyip.inputChoice(['cat', 'dog', 'moose'])
 #yes,no decision check
 response = pyip.inputYesNo('Do you want to erase (y/n)? ')
 
+# clipboard with pyperclip
+import pyperclip
 
+# copy to clipboard
+pyperclip.copy('The text to be copied to the clipboard.')
+
+# get from clipboard
+var = pyperclip.paste()
+
+# --- CALL/EXECUTE/RUN other programs from python -----
+import os
+
+# ussing the os.system function, this has got several limitations
+os.system("python scripts/zipper.py")
+
+# using the os.popen function
+dir = os.popen("ls").readlines()
+print(dir)
+
+# using the subprocess function
+import subprocess
+x = subprocess.Popen(['touch', 'xyz'])
+print(x) # <subprocess.Popen object at 0x7f29882f6f50>
+x.poll()
+print(x.returncode)
+
+# pipe the output of the process
+process = subprocess.Popen(['ls','-l'], stdout=subprocess.PIPE)
+print(process.stdout.read())
+
+# wait for the subprocess to finish
+process.wait()
