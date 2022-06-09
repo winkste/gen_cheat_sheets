@@ -529,6 +529,14 @@ power_list = [lambda x: x ** 2,
              lambda x: x ** 3,
              lambda x: x ** 4]
 
+# ---- MAIN -------
+def main():
+    """do the main thing"""
+    pass
+
+if __name__ == "__main__":
+    main()
+
 # ----- MAP -----
 # Map is used to execute a function on a list
 one_to_4 = range(1, 5)
@@ -1516,3 +1524,90 @@ print(process.stdout.read())
 
 # wait for the subprocess to finish
 process.wait()
+
+
+#---- LOGGING --------------------------------------------------------------------------
+#this cheat sheet explains basic logging funcions
+#https://docs.python.org/3/howto/logging.html
+#https://docs.python.org/3/howto/logging.html#logging-advanced-tutorial
+
+#import the logging module
+import logging
+import logging.config
+import sys
+import os
+
+
+#---- SIMPLE LOGGING --------------------------------------------------------------------------
+# simple logging mechanism
+def display_all_log_levels():
+    logging.info('This is an info message')
+    logging.debug('This is an debug message')
+    logging.warning('This is a warning message')
+    logging.error('This is a error message')
+    logging.critical('This is a critical message')
+
+
+# NOTE: the basicConfig function can only be called once, ensure
+#       settings are correct for the complete project
+
+# changing the message level 
+logging.basicConfig(level=logging.DEBUG)
+display_all_log_levels()
+
+# more formated logging
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(filename)s/%(funcName)s(%(lineno)d) - %(levelname)s - %(message)s")
+
+# configuring to log to a file (appending)
+logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
+display_all_log_levels()
+
+# configuring to log to a file (overwriting)
+logging.basicConfig(filename='example.log', filemode='w', level=logging.DEBUG)
+display_all_log_levels()
+
+#-----MORE COMPLEX LOGGING--------------------------------------------------------------------------
+# more detailed configuration using a config file for setup
+logging.config.fileConfig('logging.conf')
+
+# create logger
+logger = logging.getLogger('simpleExample')
+# creating a logger with the current file name as handler/key
+logger2 = logging.getLogger(os.path.basename(__file__).split(".")[0])
+
+# 'application' code
+logger.debug('debug message')
+logger.info('info message')
+logger.warning('warn message')
+logger.error('error message')
+logger2.debug('debug message')
+logger2.critical('critical message')
+
+#result looks like:
+#2021-03-26 05:56:45,793 - simpleExample - DEBUG - debug message
+#2021-03-26 05:56:45,793 - simpleExample - INFO - info message
+#2021-03-26 05:56:45,794 - simpleExample - WARNING - warn message
+#2021-03-26 05:56:45,794 - simpleExample - ERROR - error message
+#2021-03-26 05:56:45,794 - simpleExample - CRITICAL - critical message
+
+# ---- assert -------------------------
+var1 = 10
+var2 = 20
+
+# assert generates exception if condition is FALSE
+assert var1 == var2, "Variables are not identical"
+
+#--- trace / raise exception ----------
+#import traceback for trace information
+import traceback
+
+try:
+    #raise an exception
+    raise Exception("This is an exception")
+
+except:
+    # log the exception information into a file
+    errorFile = open("errInfo.txt", "w")
+    errorFile.write(traceback.format_exc())
+    errorFile.close()
+    print("Traceback of exception stored in file")

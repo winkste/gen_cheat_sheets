@@ -26,6 +26,9 @@ def display_all_log_levels():
 logging.basicConfig(level=logging.DEBUG)
 display_all_log_levels()
 
+# more formated logging
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s - %(filename)s/%(funcName)s(%(lineno)d) - %(levelname)s - %(message)s")
+
 # configuring to log to a file (appending)
 logging.basicConfig(filename='example.log', encoding='utf-8', level=logging.DEBUG)
 display_all_log_levels()
