@@ -1,3 +1,6 @@
+" set color scheme
+colorscheme pychimp
+
 " enable syntax highlighting
 syntax enable
 
