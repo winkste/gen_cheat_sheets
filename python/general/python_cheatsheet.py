@@ -1185,6 +1185,13 @@ print("now =", now)
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date and time =", dt_string) 
 
+# calculate a delta from datetime object
+date_before = now - datetime.timedelta(days=3)
+
+#compare datetime objects
+if now > date_before:
+    print("Now is smaller date_before")
+
 # ---- ZIP --------
 import zipfile, os
 from pathlib import Path
@@ -1611,3 +1618,7 @@ except:
     errorFile.write(traceback.format_exc())
     errorFile.close()
     print("Traceback of exception stored in file")
+
+# ---- pandas -------------------------
+import pandas as pd
+
